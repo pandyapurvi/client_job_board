@@ -1,0 +1,68 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Nav from './Nav.js';
+import Footer from './Footer.js';
+import UserProfile from './UserProfile';
+
+
+class Seeker extends Component {
+  constructor(){
+    super();
+    this.state = {
+      seeker_user:[]
+    }
+    // this.allSeeker = this.allSeeker.bind(this);
+
+  const allSeeker = () => {
+    axios.get('http://localhost:3000/users.json').then((results) => {
+      console.log(results.data);
+      const seeker_data = results.data;
+      const listSeekers = [];
+      for (let i = 0; i < seeker_data.length; i++){
+        const seekerData = seeker_data[i];
+        console.log(seekerData);
+        console.log("employer" + seekerData.employer)
+
+         if (seekerData.employer === false){
+           listSeekers.push(seekerData);
+         }
+      }
+      this.setState({seeker_user: listSeekers});
+      console.log(listSeekers);
+    })
+  };
+  allSeeker();
+  }
+  render(){
+    return (
+      <div>
+        <h1>All Seeker Profile</h1>
+        <ShowSeekerProfile seeker_user={this.state.seeker_user}/>
+
+      </div>
+    )
+  }
+};
+
+const ShowSeekerProfile =  (props) => {
+  const isEmployer = UserProfile.getEmployer();
+
+    return(
+      <div>
+        {props.seeker_user.map((s) =>
+              <div>
+              <Link to={"/user/" + s.id}><p>{s.name}</p></Link>
+              <p>{s.current_title}</p>
+              </div>
+        //   {
+        //   s.employer=='false'
+        //   ?  <p>{s.name}</p>
+        //
+        //   : ''
+        // }
+        )}
+      </div>
+    )
+};
+export default Seeker;

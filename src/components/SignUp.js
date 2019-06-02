@@ -1,121 +1,176 @@
 import React, { Component } from 'react';
-import './../App.css';
+import { Button, FormGroup, FormControl } from "react-bootstrap";
+//import './../App.css';
 import axios from 'axios';
 import UserProfile from './UserProfile';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
 
-export default class SignUp extends Component {
-  constructor(props) {
+class SignUp extends Component {
+  constructor(props){
     super(props);
-
     this.state = {
       name: "",
       email: "",
-      password: "",
-      password_confirmation: "",
-      error_message: ""
+      password: ""
     };
+    this.getName = this.getName.bind(this);
+    this.getEmail = this.getEmail.bind(this);
+    this.getPassword = this.getPassword.bind(this);
+    this.signup = this.signup.bind(this);
+    //this.saveUser = this.saveUser.bind(this);
   }
-
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
-  }
-
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-
-console.log(this.state.email, this.state.password, this.state.password_confirmation);
-
-if (this.state.password !== this.state.password_confirmation) {
-  this.setState({error_message: 'Passwords do not match.'});
-  return;
-}
-console.log('passwords ok');
-
-axios.post("http://localhost:3000/users", { name: this.state.name, email: this.state.email, password: this.state.password}).then((result) =>{
-    //post actions
-    console.log(result);
-    console.log("What is this" + result.statusText);
-    if (result.statusText==="Created") {
-      UserProfile.setName(result.data.name);
-      UserProfile.setUserId(result.data.user_id);
-      UserProfile.setEmployer(result.data.employer);
-      UserProfile.setEmail(result.data.email);
-
-      // let urlstr = window.location.href;
-      // if (urlstr.includes('#')) {
-      //   urlstr = urlstr.split('#')[0] + '#/'
-      // }
-      // window.location.replace(urlstr);
+  getName(event) {
+      this.setState({
+        name: event.target.value
+      });
     }
-    })
-    // .catch((error) => {
-    //   console.log('error', error.response.data.errors[0]);
-    //   this.setState({ error_message: error.response.data.errors[0]})
-    // });
 
-  }
+    getEmail(event) {
+      this.setState({
+        email: event.target.value
+      });
+    }
 
-  render() {
-    return (
+    getPassword(event) {
+      this.setState({
+        password: event.target.value
+      });
+    }
+    signup(event) {
+        event.preventDefault();
+        axios
+          .post("http://localhost:3000/users.json", {
+            name: this.state.name,
+            email: this.state.email,
+            password_digest: this.state.password
+
+          })
+          .then(result => {
+            console.log(result);
+
+            this.props.history.push("/"); ////
+          });
+      }
+
+  // saveUser( name, email,password) {
+  //   axios.post("http://localhost:3000/users.json", {name: name, email:email, password_digest: password}).then((result) => {
+  //     this.setState({user: [...this.state.user, result.data]})
+  //     console.log(result.data);
+  //
+  //     this.props.history.push("/jobs");
+  //   });
+  //
+  // }
+
+  render(){
+    return(
+
       <div>
-      <Nav />
-      <header>
-      <h1>Sign Up</h1>
+        <Nav />
+        <div className="signup-container">
+        <h2>Sign Up</h2>
+        <form onSubmit={this.signup}>
+          <input
+            className="signup-input"
+            type="text"
+            value={this.state.name}
+            onChange={this.getName}
+            placeholder="Name"
+          />
 
-        <form onSubmit={this.handleSubmit} action="/">
-            <span style={{color: 'black'}}>Name</span>
-            <input
-              autoFocus
-              placeholder="name"
-              type="text"
-              onInput={this.state.name}
-              onChange={this.handleChange}
-            />
+          <input
+            className="signup-input"
+            type="text"
+            value={this.state.email}
+            onChange={this.getEmail}
+            placeholder="E-mail"
+          />
 
+          <input
+            className="signup-input"
+            type="password"
+            value={this.state.password}
+            onChange={this.getPassword}
+            placeholder="Password"
+          />
 
-            <span style={{color: 'black'}}>Email</span>
-            <input
-              autoFocus
-              type="text"
-              onInput={this.state.email}
-              onChange={this.handleChange}
-            />
-
-
-          <span style={{color: 'black'}}>Password</span>
-            <input
-              onInput={this.state.password}
-              onChange={this.handleChange}
-              type="text"
-            />
-
-
-          <span style={{color: 'black'}}>Confirm Password</span>
-            <input
-              onInput={this.state.password_confirmation}
-              onChange={this.handleChange}
-              type="text"
-            />
-
-          <button
-            // disabled={!this.validateForm()}
-            type="submit"
-          >
+          <button className="signup-page-button" type="submit" value="">
+            {" "}
             Sign Up
           </button>
         </form>
-        <p>{this.state.error_message}</p>
-        </header>
+      </div>
+
+
         <Footer />
       </div>
     );
   }
-}
+};
+
+// class SeekerForm extends Component {
+//   constructor(){
+//     super();
+//     this.state = {
+//       name:'',
+//       email:'',
+//       password: '',
+//       phone:'',
+//       website:'',
+//       resume:'',
+//       notice_period:'',
+//       experience:'',
+//       current_title:''
+//     }
+//     this._handleInputName = this._handleInputName.bind(this);
+//     this._handleInputEmail = this._handleInputEmail.bind(this);
+//     this._handleInputPassword = this._handleInputPassword.bind(this);
+//     this._handleSubmit = this._handleSubmit.bind(this);
+//   }
+//
+//   _handleInputName(event){
+//     //console.log(event.target.value);
+//     this.setState({name: event.target.value})
+//   };
+//
+//   _handleInputEmail(event){
+//     //console.log(event.target.value);
+//     this.setState({email: event.target.value})
+//   };
+//
+//   _handleInputPassword(event){
+//     //console.log(event.target.value);
+//     this.setState({password: event.target.value})
+//   };
+//
+//   _handleSubmit(event){
+//     event.preventDefault();
+//     // console.log("hi");
+//     this.props.onSubmit(this.state.name, this.state.email, this.state.password)
+//     //this.props.onSubmit("TEST", "this.state.pettype");
+//
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={this._handleSubmit}>
+//           <label>Name</label>
+//           <input type="text" onInput={this._handleInputName}/>
+//           <br></br>
+//
+//           <label>Email</label>
+//           <input type="text" onInput={this._handleInputEmail}/>
+//           <br></br>
+//
+//           <label>Password</label>
+//           <input type="text" onInput={this._handleInputPassword}/>
+//           <br></br>
+//           <button type="submit">Submit</button>
+//         </form>
+//       </div>
+//     )
+//   }
+// }
+
+export default SignUp;
