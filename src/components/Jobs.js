@@ -80,7 +80,7 @@ const Showjobs = (props) => {
       <div>
       {props.jobs.map((job)=>
 
-          <Link to={"/job/" + job.id}><p>{job.title}</p></Link>
+          <Link to={"/job/" + job.id} key={job.id}><p>{job.title}</p></Link>
 
       )}
       </div>

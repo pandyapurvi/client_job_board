@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
+import UserProfile from './UserProfile';
 
 class JobDetail extends Component {
   constructor(props) {
@@ -25,10 +26,16 @@ class JobDetail extends Component {
   }
 
   render() {
+    const isEmployer = UserProfile.getEmployer();
     return (
       <div>
         <Nav />
         <Description job={this.state.job}/>
+        {
+        isEmployer
+        ?  <button>Update</button>
+        : ''
+      }
         <Footer />
       </div>
     )

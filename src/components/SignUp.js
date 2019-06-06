@@ -12,11 +12,26 @@ class SignUp extends Component {
     this.state = {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      // password_confirmation: "",
+      phone: "",
+      website:"",
+      resume:"",
+      notice_period:"",
+      experience: "",
+      current_title: "",
+      employer: 'false'
     };
     this.getName = this.getName.bind(this);
     this.getEmail = this.getEmail.bind(this);
     this.getPassword = this.getPassword.bind(this);
+    // this.getPassword_confirmation = this.getPassword_confirmation.bind(this);
+    this.getPhone = this.getPhone.bind(this);
+    this.getWebsite = this.getWebsite.bind(this);
+    this.getResume = this.getResume.bind(this);
+    this.getNotice = this.getNotice.bind(this);
+    this.getExperience = this.getExperience.bind(this);
+    this.getCurrentTitle = this.getCurrentTitle.bind(this);
     this.signup = this.signup.bind(this);
     //this.saveUser = this.saveUser.bind(this);
   }
@@ -37,13 +52,63 @@ class SignUp extends Component {
         password: event.target.value
       });
     }
+
+    // getPassword_confirmation(event) {
+    //   this.setState({
+    //     password_confirmation: event.target.value
+    //   });
+    // }
+
+    getPhone(event) {
+      this.setState({
+        phone: event.target.value
+      });
+    }
+
+    getWebsite(event) {
+      this.setState({
+        website: event.target.value
+      });
+    }
+
+    getResume(event) {
+      this.setState({
+        resume: event.target.value
+      });
+    }
+
+    getNotice(event) {
+      this.setState({
+        notice_period: event.target.value
+      });
+    }
+
+    getExperience(event) {
+      this.setState({
+        experience: event.target.experience
+      });
+    }
+
+    getCurrentTitle(event) {
+      this.setState({
+        current_title: event.target.current_title
+      });
+    }
     signup(event) {
         event.preventDefault();
         axios
           .post("http://localhost:3000/users.json", {
             name: this.state.name,
             email: this.state.email,
-            password_digest: this.state.password
+            password: this.state.password,
+            password_confirmation: this.state.password_confirmation,
+            phone: this.state.phone,
+            website: this.state.website,
+            resume: this.state.resume,
+            notice_period: this.state.notice_period,
+            experience: this.state.experience,
+            current_title:this.state.current_title
+
 
           })
           .then(result => {
@@ -94,6 +159,57 @@ class SignUp extends Component {
             onChange={this.getPassword}
             placeholder="Password"
           />
+
+
+          <input
+            className="signup-input"
+            type="number"
+            value={this.state.phone}
+            onChange={this.getPhone}
+            placeholder="phone no."
+            />
+
+          <input
+            className="signup-input"
+            type="text"
+            value={this.state.website}
+            onChange={this.getWebsite}
+            placeholder="website link"
+            />
+
+          <input
+            className="signup-input"
+            type="text"
+            value={this.state.resume}
+            onChange={this.getResume}
+            placeholder="resume"
+            />
+
+            <input
+              className="signup-input"
+              type="text"
+              value={this.state.notice_period}
+              onChange={this.getNotice}
+              placeholder="notice period"
+              />
+
+          <input
+            className="signup-input"
+            type="number"
+            value={this.state.experience}
+            onChange={this.getExperience} min="0"
+            placeholder="experience years"
+            />
+
+          <input
+            className="signup-input"
+            type="text"
+            value={this.state.current_title}
+            onChange={this.getCurrentTitle}
+            placeholder="current title"
+            />
+
+
 
           <button className="signup-page-button" type="submit" value="">
             {" "}

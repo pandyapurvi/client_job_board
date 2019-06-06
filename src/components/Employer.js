@@ -51,9 +51,12 @@ const ShowEmployerProfile =  (props) => {
 
     return(
       <div>
+      {console.log(props.employer_user)}
         {props.employer_user.map((s) =>
               <div>
-              <p>{s.name}</p>
+              <Link to={"/job/" + s.id}><p>{s.name}</p></Link>
+              {console.log(s.employer)}
+              <p>{s.employer}</p>
 
               </div>
 

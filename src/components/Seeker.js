@@ -5,7 +5,7 @@ import Nav from './Nav.js';
 import Footer from './Footer.js';
 import UserProfile from './UserProfile';
 
-
+// note: https://github.com/wojtekmaj/react-pdf
 class Seeker extends Component {
   constructor(){
     super();
