@@ -63,6 +63,7 @@ const UserProfile = (function() {
 
   const getEmployer = function () {
     if (typeof (Storage) !== "undefined") {
+      console.log("hello" + Storage);
       let temp = localStorage.getItem('employer');
       if (temp !== null) {
         if (temp==="true" || temp===true) {

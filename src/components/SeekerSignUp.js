@@ -6,7 +6,7 @@ import UserProfile from './UserProfile';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
 
-class SignUp extends Component {
+class SeekerSignUp extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ class SignUp extends Component {
       notice_period:"",
       experience: "",
       current_title: "",
-      employer: 'false'
+      employer: false
     };
     this.getName = this.getName.bind(this);
     this.getEmail = this.getEmail.bind(this);
@@ -85,13 +85,13 @@ class SignUp extends Component {
 
     getExperience(event) {
       this.setState({
-        experience: event.target.experience
+        experience: event.target.value
       });
     }
 
     getCurrentTitle(event) {
       this.setState({
-        current_title: event.target.current_title
+        current_title: event.target.value
       });
     }
     signup(event) {
@@ -101,13 +101,14 @@ class SignUp extends Component {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            password_confirmation: this.state.password_confirmation,
+            // password_confirmation: this.state.password_confirmation,
             phone: this.state.phone,
             website: this.state.website,
             resume: this.state.resume,
             notice_period: this.state.notice_period,
             experience: this.state.experience,
-            current_title:this.state.current_title
+            current_title:this.state.current_title,
+            employer:this.state.employer
 
 
           })
@@ -289,4 +290,4 @@ class SignUp extends Component {
 //   }
 // }
 
-export default SignUp;
+export default SeekerSignUp;
