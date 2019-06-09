@@ -14,7 +14,7 @@ class Jobs extends Component {
     this.fetchJobs = this.fetchJobs.bind(this);
 
     const allJobs = () => {
-      axios.get('http://localhost:3000/jobs.json').then((results) => {
+      axios.get('https://server-job-board.herokuapp.com/jobs.json').then((results) => {
         console.log(results.data);
         this.setState({jobs :results.data});
       })
@@ -27,7 +27,7 @@ class Jobs extends Component {
     let title = t;
     let city = c;
 
-    axios.get('http://localhost:3000/jobs.json').then((results) => {
+    axios.get('https://server-job-board.herokuapp.com/jobs.json').then((results) => {
       //console.log(results.data);
       const job_data = results.data;
       const listJobs = [];

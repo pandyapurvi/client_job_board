@@ -35,22 +35,32 @@ export default class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const baseURL = "http://localhost:3000/users.json";
+    const baseURL = "https://server-job-board.herokuapp.com/users.json";
+    let user_id = -1;
+    let userDetail = null;
 
-    //console.log(baseURL);
-    axios.post(baseURL, { email: this.state.email, password: this.state.password }).then((result) =>{
-      //post actions
-      //console.log(result);
-      //console.log(result.statusText);
-      if (result.statusText==="OK") {
-        UserProfile.setName(result.data.name);
-        UserProfile.setUserId(result.data.user_id);
-        UserProfile.setEmployer(result.data.employer);
-        UserProfile.setEmail(result.data.email);
+    axios.get(baseURL).then((result) =>{
+
+      const userslist = result.data;
+        console.log(this.state.email);
+        console.log(userslist);
+        for (let i=0; i<userslist.length; i++) {
+          if (userslist[i].email === this.state.email) {
+            user_id = userslist[i].id;
+            userDetail = userslist[i];
+            break;
+          }
+        }
+        console.log(user_id);
+      if (user_id > 0) {
+        UserProfile.setName(userDetail.name);
+        UserProfile.setUserId(user_id);
+        UserProfile.setEmployer(userDetail.employer);
+        UserProfile.setEmail(userDetail.email);
 
         let urlstr = window.location.href;
         if (urlstr.includes('#')) {
-          urlstr = urlstr.split('#')[0] + '#/home'
+          urlstr = urlstr.split('#')[0] + '#/'
         }
         window.location.replace(urlstr);
       }
@@ -263,4 +273,4 @@ export default class Login extends Component {
 //   }
 // }
 //
-// export default Login;
+ // export default Login;
