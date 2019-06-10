@@ -51,7 +51,8 @@ class Description extends Component {
   // }
   render(){
     const isEmployer = UserProfile.getEmployer();
-    console.log("is Employer" + isEmployer);
+    const isEmail = UserProfile.getEmail();
+    console.log("is Email" + isEmail);
     return (
       <div>
         <p><strong>Job title: </strong>{this.props.job.title}</p>
@@ -64,9 +65,10 @@ class Description extends Component {
         <p><strong>City:</strong>{this.props.job.city}</p>
         <p><strong>Job Closing Date:</strong>{this.props.job.close_date}</p>
         {
-          isEmployer
-          ? '' : <Link to={"/job/" + this.props.job.id + "/apply"}><button>Apply</button></Link>
-
+          (isEmail === '')
+          ? <Link to={"/login"}><button>Apply</button></Link>
+          : isEmployer
+          ? '': <Link to={"/job/" + this.props.job.id + "/apply"}><button>Apply</button></Link>
         }
 
 

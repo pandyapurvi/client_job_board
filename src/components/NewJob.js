@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
-
+import UserProfile from './UserProfile';
 class NewJob extends Component {
   constructor(){
     super();
@@ -14,7 +14,8 @@ class NewJob extends Component {
   }
 
   saveJob( title, post_date, description, level, company_type, job_type, salary, city, close_date) {
-    axios.post("https://server-job-board.herokuapp.com/jobs.json", {title:title, post_date:post_date, description:description, level:level, company_type:company_type, job_type:job_type, salary:salary, city:city, close_date:close_date}).then((result) => {
+    const user_id = UserProfile.getUserId();
+    axios.post("https://server-job-board.herokuapp.com/jobs.json", {title:title, post_date:post_date, description:description, level:level, company_type:company_type, job_type:job_type, salary:salary, city:city, close_date:close_date, user_id: user_id}).then((result) => {
       this.setState({newJob: [...this.state.newJob, result.data]})
       console.log(result.data);
 

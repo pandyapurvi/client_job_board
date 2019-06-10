@@ -15,7 +15,7 @@ class Seeker extends Component {
     // this.allSeeker = this.allSeeker.bind(this);
 
   const allSeeker = () => {
-    axios.get('http://localhost:3000/users.json').then((results) => {
+    axios.get('https://server-job-board.herokuapp.com/users.json').then((results) => {
       console.log(results.data);
       const seeker_data = results.data;
       const listSeekers = [];
@@ -52,7 +52,7 @@ const ShowSeekerProfile =  (props) => {
       <div>
         {props.seeker_user.map((s) =>
               <div>
-              <Link to={"/user/" + s.id}><p>{s.name}</p></Link>
+              <Link to={"/seeker/" + s.id}><p>{s.name}</p></Link>
               <p>{s.current_title}</p>
               </div>
         //   {

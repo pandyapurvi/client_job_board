@@ -9,7 +9,9 @@ import EmployerSignup from './components/EmployerSignup';
 import Seeker from './components/Seeker';
 import SeekerDetail from './components/SeekerDetail';
 import Employer from './components/Employer';
+import EmployerDetail from './components/EmployerDetail';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import Apply from './components/Apply';
 
 const Routes = (
@@ -20,11 +22,13 @@ const Routes = (
       <Route exact path="/newjob" component={NewJob}/>
       <Route exact path="/job/:id/apply" component={Apply} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/logout" component={Logout} />
       <Route exact path="/seekersignup" component={SeekerSignUp} />
       <Route exact path="/employersignup" component={EmployerSignup} />
       <Route exact path="/seeker" component={Seeker} />
       <Route exact path="/employer" component={Employer} />
-      <Route exact path="/user/:id" component={SeekerDetail} />
+      <Route exact path="/seeker/:id" component={SeekerDetail} />
+      <Route exact path="/employer/:id" component={EmployerDetail} />
     </div>
   </Router>
 );

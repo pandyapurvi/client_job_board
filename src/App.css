@@ -1,3 +1,9 @@
+*{
+  box-sizing: border-box;
+}
+
+
+
 .App {
   text-align: center;
 }
@@ -30,4 +36,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+/* Styel for Navigation */
+nav  {
+  display: flex;
+  background-color: #ccc;
+}
+ul {
+  list-style: none;
+  display: inline-flex;
+}
+li {
+  margin-right: 7rem;
+  font-size: 1rem;
 }

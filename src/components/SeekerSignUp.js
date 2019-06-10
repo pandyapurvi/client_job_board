@@ -97,7 +97,7 @@ class SeekerSignUp extends Component {
     signup(event) {
         event.preventDefault();
         axios
-          .post("http://localhost:3000/users.json", {
+          .post("https://server-job-board.herokuapp.com/users.json", {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,

@@ -38,7 +38,7 @@ class Apply extends Component {
         urlstr = urlstr.split('#')[0] + '#/'
       }
       window.location.replace(urlstr);
-      //this.setState({application: [...this.state.application, result.data]})
+      this.setState({application: [...this.state.application, result.data]})
 
 
       //this.props.history.push("#/");

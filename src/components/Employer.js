@@ -14,7 +14,7 @@ class Employer extends Component {
     // this.allSeeker = this.allSeeker.bind(this);
 
   const allEmployer = () => {
-    axios.get('http://localhost:3000/users.json').then((results) => {
+    axios.get('https://server-job-board.herokuapp.com/users.json').then((results) => {
       console.log(results.data);
       const employer_data = results.data;
       const listEmployers = [];
@@ -54,7 +54,7 @@ const ShowEmployerProfile =  (props) => {
       {console.log(props.employer_user)}
         {props.employer_user.map((s) =>
               <div>
-              <Link to={"/job/" + s.id}><p>{s.name}</p></Link>
+              <Link to={"/employer/" + s.id}><p>{s.name}</p></Link>
               {console.log(s.employer)}
               <p>{s.employer}</p>
 

@@ -5,11 +5,11 @@ import Nav from './Nav.js';
 import Footer from './Footer.js';
 // import UserProfile from './UserProfile';
 
-class SeekerDetail extends Component {
+class EmployerDetail extends Component {
   constructor(props){
     super(props);
       this.state = {
-        seeker: [],
+        employer: [],
         applications: [],
         jobList: []
       }
@@ -19,19 +19,19 @@ class SeekerDetail extends Component {
 
       const URL = 'https://server-job-board.herokuapp.com/users/'+ user_id +'.json'
 
-      const fetchSeeker = () => {
+      const fetchEmployer = () => {
         axios.get(URL).then((results) => {
 
-          this.setState({seeker: results.data})
+          this.setState({employer: results.data})
         });
       }
-      fetchSeeker();
+      fetchEmployer();
 
 
       const allApplications = () => {
         // const listApplications = [];
         // const listJobs = [];
-        axios.get('https://server-job-board.herokuapp.com/applications.json').then((results) => {
+        axios.get('https://server-job-board.herokuapp.com/jobs.json').then((results) => {
 
 
           const application_data = results.data;
@@ -47,26 +47,6 @@ class SeekerDetail extends Component {
             }
             this.setState({applications: listApplications});
         })
-        // axios.get('https://server-job-board.herokuapp.com/jobs.json').then((results) => {
-        //
-        //   const listJobs_data = results.data;
-        //     console.log("Ahiya Aave K e nai" + listJobs_data.length);
-        //     for (let i = 0; i < listJobs_data.length; i++) {
-        //       const listJobsData = listJobs_data[i];
-        //       for ( let j = 0; j < listApplications.length; j++){
-        //         if (listJobsData.id === listApplications[j].job_id){
-        //           console.log("Have Ahinu Su chhe");
-        //           listJobs.push( listJobsData );
-        //         }
-        //
-        //       }
-        //
-        //
-        //     }
-        //     this.setState({jobList: listJobs});
-        //
-        // })
-
 
       }
       const allJobs = () => {
@@ -95,11 +75,12 @@ class SeekerDetail extends Component {
   render() {
     return (
       <div>
-        <h6>Seeker profile</h6>
+        <h6>Employer profile</h6>
 
-        <Detail seeker={this.state.seeker} />
+        <Detail employer={this.state.employer} />
         <AppliList jobList={this.state.jobList} applications={this.state.applications}/>
-        {console.log("return ma listJobs" + this.state.jobList)}
+        {console.log("application detail:" + this.state.applications)}
+
       </div>
     )
   }
@@ -109,14 +90,17 @@ const Detail = (props) => {
   return (
     <div>
 
-      <h4>Name of Candidate:{props.seeker.name}</h4>
-          <p>Email address:{props.seeker.email}</p>
-          <p>Contact number:{props.seeker.phone}</p>
-          <p>Social Website:{props.seeker.website}</p>
-          <p>Resume:{props.seeker.resume}</p>
-          <p>Current title:{props.seeker.current_title}</p>
-          <p>Require Notice Period:{props.seeker.notice_period}</p>
-          <p>Total years of an experience:{props.seeker.experience}</p>
+      <h4>Name of Company:{props.employer.name}</h4>
+      <img src={props.employer.image}/>
+          <p>Email address:{props.employer.email}</p>
+          <p>Contact number:{props.employer.phone}</p>
+          <p>Social Website:{props.employer.website}</p>
+          <p>Size of Company:{props.employer.company_size}</p>
+          <p>Type of Company:{props.employer.company_type}</p>
+          <p>Description:{props.employer.description}</p>
+          <p>ABN:{props.employer.ABN}</p>
+          <Link to={"/seeker"}>See Seeker's Profile</Link>
+
 
 
     </div>
@@ -125,15 +109,15 @@ const Detail = (props) => {
 
 const AppliList = (props) => {
 
-    if (props.jobList.length === 0){
-      return 'You havnt Applied for any Job.'
+    if (props.applications.length === 0){
+      return 'You havnt Post any Job.'
     } else {
       //TODO: sort by date
       return (
         <div>
-        {props.jobList.map((job)=>
+        {props.applications.map((app)=>
           <div>
-          <h4>Job Title:{job.title}</h4>
+          <h4>Job Title:{app.title}</h4>
 
           </div>
         )}
@@ -149,4 +133,4 @@ const AppliList = (props) => {
 
 }
 
-export default SeekerDetail;
+export default EmployerDetail;
