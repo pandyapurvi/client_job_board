@@ -10,6 +10,7 @@ import axios from 'axios';
 import UserProfile from './UserProfile';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
+import { Link } from 'react-router-dom';
 
 
 export default class Login extends Component {
@@ -70,29 +71,35 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="App Login">
+      <div>
       <Nav />
-      <header className="App-header">
+      <header className="login">
       <h1>Login</h1>
-      <br/>
-      <br/>
+      <p>Welcome Back! New to the site?</p>
+      <Link to={"/seekersignup"} className="signup-link"><p>Signup here if you are a Seeker</p></Link>
+      <Link to={"/employersignup"} className="signup-link"><p>Signup here if you are an Employer</p></Link>
+
       <form onSubmit={this.handleSubmit} action="/">
       <FormGroup controlId="email" bsSize="large">
-      <span style={{color: 'black'}} className="fa fa-envelope-o fa-fw"></span>
+      <span style={{color: 'black'}}></span>
       <FormControl
       autoFocus
       type="email"
+      placeholder="Your email address"
       value={this.state.email}
       onChange={this.handleChange}
+      className="login-input"
       />
       </FormGroup>
       <FormGroup controlId="password" bsSize="large">
-      <span style={{color: 'black'}} className="fa fa-key fa-fw"></span>
-      <br/>
+      <span style={{color: 'black'}} ></span>
+    <br/>
       <FormControl
       value={this.state.password}
       onChange={this.handleChange}
       type="password"
+      placeholder="Password"
+      className="login-input"
       />
       </FormGroup>
       <Button
@@ -100,6 +107,7 @@ export default class Login extends Component {
       bsSize="large"
       disabled={!this.validateForm()}
       type="submit"
+      className="login-btn"
       >
       Login
       </Button>

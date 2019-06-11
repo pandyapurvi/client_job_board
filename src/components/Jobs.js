@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
+import './../App.css';
 
 class Jobs extends Component {
   constructor() {
@@ -59,8 +60,8 @@ render() {
   return (
     <div>
 
-      <p>Search over current positions</p>
-      <p>for developers in one sizzlin' spot</p>
+      <h1>Search over current positions</h1>
+      <h1>for developers in one sizzlin' spot</h1>
 
       <SearchForm onSubmit={ this.fetchJobs}/>
       <Showjobs jobs={this.state.jobs}/>
@@ -77,10 +78,10 @@ const Showjobs = (props) => {
   } else {
     //TODO: sort by date
     return (
-      <div>
+      <div >
       {props.jobs.map((job)=>
 
-          <Link to={"/job/" + job.id} key={job.id}><p>{job.title}</p></Link>
+          <Link to={"/job/" + job.id} key={job.id} className="job-macro"><p>{job.title}</p></Link>
 
       )}
       </div>
@@ -128,14 +129,14 @@ class SearchForm extends Component {
     return (
       <div>
         <form onSubmit={this._handleSubmit}>
-          <label>Job title:</label>
+          <label className="job-search">Job title:</label>
             <select onChange={this._handleChangeJobTitle}>
             <option>{''}</option>
             <option>Graduate Software Enginner</option>
             <option>Junior Software Enginner</option>
             </select>
 
-            <label>City:</label>
+            <label className="job-search">City:</label>
               <select onChange={this._handleChangeCity}>
               <option>{''}</option>
               <option>Sydney</option>
@@ -144,7 +145,7 @@ class SearchForm extends Component {
               <option>Canberra</option>
               </select>
 
-              <button type="submit">Search</button>
+              <button type="submit" className="button">Search</button>
         </form>
       </div>
     )

@@ -11,10 +11,10 @@ class Nav extends Component {
       <div>
       <nav>
         <ul>
-          <li>Logo</li>
-          <li><Link to={"/"}>Jobs</Link></li>
-          <li><Link to={"/about"}>About Me</Link></li>
-          <li><Link to={"/login"}>Login</Link></li>
+          <li className="nav">Logo</li>
+          <li><Link to={"/"} className="nav">Jobs</Link></li>
+          <li><Link to={"/about"} className="nav">About Me</Link></li>
+          <li><Link to={"/login"} className="nav">Login</Link></li>
 
         </ul>
       </nav>
@@ -29,17 +29,17 @@ class Nav extends Component {
       <div>
       <nav>
         <ul>
-          <li>Logo</li>
-          <li><Link to={"/"}>Jobs</Link></li>
-          <li><Link to={"/about"}>About Me</Link></li>
-          <li><Link to={"/logout"}>LogOut</Link></li>
+          <li className="nav">Logo</li>
+          <li ><Link to={"/"} className="nav">Jobs</Link></li>
+          <li ><Link to={"/about"} className="nav">About Me</Link></li>
+          <li ><Link to={"/logout"} className="nav">LogOut</Link></li>
           {
           isEmployer
           ?
-          <li>Post a Job</li>
+          <li className="nav">Post a Job</li>
           : ''
         }
-          <Link to= {"/seeker/" + takeID}> <p>Welcome {greeting}</p></Link>
+          <li><Link to= {"/seeker/" + takeID} className="nav" >Welcome {greeting}</Link></li>
         </ul>
       </nav>
       </div>

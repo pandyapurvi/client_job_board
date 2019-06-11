@@ -75,12 +75,13 @@ class EmployerDetail extends Component {
   render() {
     return (
       <div>
-        <h6>Employer profile</h6>
+      <Nav />
+        <h3>Employer profile</h3>
 
         <Detail employer={this.state.employer} />
         <AppliList jobList={this.state.jobList} applications={this.state.applications}/>
         {console.log("application detail:" + this.state.applications)}
-
+        <Footer />
       </div>
     )
   }
@@ -88,18 +89,18 @@ class EmployerDetail extends Component {
 
 const Detail = (props) => {
   return (
-    <div>
+    <div className="grid-container">
 
       <h4>Name of Company:{props.employer.name}</h4>
-      <img src={props.employer.image}/>
-          <p>Email address:{props.employer.email}</p>
-          <p>Contact number:{props.employer.phone}</p>
-          <p>Social Website:{props.employer.website}</p>
-          <p>Size of Company:{props.employer.company_size}</p>
-          <p>Type of Company:{props.employer.company_type}</p>
-          <p>Description:{props.employer.description}</p>
-          <p>ABN:{props.employer.ABN}</p>
-          <Link to={"/seeker"}>See Seeker's Profile</Link>
+      <img src={props.employer.image} width="200" height="200"/>
+          <p><strong>Email address:</strong>{props.employer.email}</p>
+          <p><strong>Contact number:</strong>{props.employer.phone}</p>
+          <p><strong>Social Website:</strong>{props.employer.website}</p>
+          <p><strong>Size of Company:</strong>{props.employer.company_size}</p>
+          <p><strong>Type of Company:</strong>{props.employer.company_type}</p>
+          <p><strong>Description:</strong>{props.employer.description}</p>
+          <p><strong>ABN:</strong>{props.employer.ABN}</p>
+          <Link to={"/seeker"} className="employer-btn">See Seeker's Profile</Link>
 
 
 

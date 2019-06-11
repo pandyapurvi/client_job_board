@@ -155,7 +155,7 @@ class EmployerSignUp extends Component {
 
       <div>
         <Nav />
-        <div className="signup-container">
+        <div className="grid-container">
         <h2>Sign Up</h2>
         <form onSubmit={this.signup}>
           <input
@@ -165,6 +165,7 @@ class EmployerSignUp extends Component {
             onChange={this.getName}
             placeholder="Name"
           />
+          <br/>
 
           <input
             className="signup-input"
@@ -173,6 +174,7 @@ class EmployerSignUp extends Component {
             onChange={this.getEmail}
             placeholder="E-mail"
           />
+          <br/>
 
           <input
             className="signup-input"
@@ -181,7 +183,7 @@ class EmployerSignUp extends Component {
             onChange={this.getPassword}
             placeholder="Password"
           />
-
+          <br/>
 
           <input
             className="signup-input"
@@ -190,6 +192,7 @@ class EmployerSignUp extends Component {
             onChange={this.getPhone}
             placeholder="phone no."
             />
+            <br/>
 
           <input
             className="signup-input"
@@ -198,6 +201,7 @@ class EmployerSignUp extends Component {
             onChange={this.getWebsite}
             placeholder="website link"
             />
+            <br/>
 
           <input
             className="signup-input"
@@ -206,6 +210,7 @@ class EmployerSignUp extends Component {
             onChange={this.getCompany_size}
             placeholder="size of company"
             />
+            <br/>
 
             <input
               className="signup-input"
@@ -214,6 +219,7 @@ class EmployerSignUp extends Component {
               onChange={this.getCompany_type}
               placeholder="type of company"
               />
+              <br/>
 
           <input
             className="signup-input"
@@ -222,6 +228,7 @@ class EmployerSignUp extends Component {
             onChange={this.getDescription}
             placeholder="describe your company"
             />
+            <br/>
 
           <input
             className="signup-input"
@@ -230,6 +237,7 @@ class EmployerSignUp extends Component {
             onChange={this.getABN}
             placeholder="ABN"
             />
+            <br/>
 
             <input
               className="signup-input"
@@ -238,10 +246,10 @@ class EmployerSignUp extends Component {
               onChange={this.getImage}
               placeholder="http"//..."
               />
+              <br/>
 
 
-
-          <button className="signup-page-button" type="submit" value="">
+          <button className="signup-btn" type="submit" value="">
             {" "}
             Sign Up
           </button>

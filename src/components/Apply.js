@@ -51,7 +51,7 @@ class Apply extends Component {
     return (
       <div>
       <Nav/>
-          <p>Apply Job Here</p>
+          <h3>Job Application</h3>
           <CreateForm onSubmit={this.saveJob}/>
           <Footer/>
       </div>
@@ -99,21 +99,21 @@ class CreateForm extends Component {
   render () {
 
     return (
-      <div className="editform">
+      <div className="grid-container">
       <form onSubmit={this._handleSubmit} >
 
-      <label>Application Date</label>
+      <label className="item">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
       <input type="date" onInput={this._handleInputApplication_date}/>
-      <br />
+      <br/><br/>
 
-      <label>Resume</label>
+      <label className="item">Resume:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
       <textarea onInput={this._handleInputResume}/>
-      <br />
+      <br/><br/>
 
-      <label>Cover letter</label>
+      <label className="item">Cover letter:</label>
       <textarea onInput={this._handleInputCover_letter}/>
-      <br />
-      <button type="submit" className="alter">Apply</button>
+      <br /><br/>
+      <button type="submit" className="apply-btn">Apply</button>
 
       </form>
       </div>
@@ -121,7 +121,5 @@ class CreateForm extends Component {
     );
   }
 };
-
-
 
 export default Apply;

@@ -132,9 +132,9 @@ class SeekerSignUp extends Component {
   render(){
     return(
 
-      <div>
+      <div >
         <Nav />
-        <div className="signup-container">
+        <div className="grid-container">
         <h2>Sign Up</h2>
         <form onSubmit={this.signup}>
           <input
@@ -144,6 +144,7 @@ class SeekerSignUp extends Component {
             onChange={this.getName}
             placeholder="Name"
           />
+          <br/>
 
           <input
             className="signup-input"
@@ -152,6 +153,7 @@ class SeekerSignUp extends Component {
             onChange={this.getEmail}
             placeholder="E-mail"
           />
+          <br/>
 
           <input
             className="signup-input"
@@ -160,6 +162,7 @@ class SeekerSignUp extends Component {
             onChange={this.getPassword}
             placeholder="Password"
           />
+          <br/>
 
 
           <input
@@ -169,6 +172,7 @@ class SeekerSignUp extends Component {
             onChange={this.getPhone}
             placeholder="phone no."
             />
+            <br/>
 
           <input
             className="signup-input"
@@ -177,6 +181,7 @@ class SeekerSignUp extends Component {
             onChange={this.getWebsite}
             placeholder="website link"
             />
+            <br/>
 
           <input
             className="signup-input"
@@ -185,6 +190,7 @@ class SeekerSignUp extends Component {
             onChange={this.getResume}
             placeholder="resume"
             />
+            <br/>
 
             <input
               className="signup-input"
@@ -193,6 +199,7 @@ class SeekerSignUp extends Component {
               onChange={this.getNotice}
               placeholder="notice period"
               />
+              <br/>
 
           <input
             className="signup-input"
@@ -201,7 +208,7 @@ class SeekerSignUp extends Component {
             onChange={this.getExperience} min="0"
             placeholder="experience years"
             />
-
+            <br/>
           <input
             className="signup-input"
             type="text"
@@ -209,10 +216,9 @@ class SeekerSignUp extends Component {
             onChange={this.getCurrentTitle}
             placeholder="current title"
             />
+            <br/>
 
-
-
-          <button className="signup-page-button" type="submit" value="">
+          <button className="signup-btn" type="submit" value="">
             {" "}
             Sign Up
           </button>

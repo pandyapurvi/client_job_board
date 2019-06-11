@@ -95,11 +95,13 @@ class SeekerDetail extends Component {
   render() {
     return (
       <div>
-        <h6>Seeker profile</h6>
+      <Nav />
+        <h3>Seeker profile</h3>
 
         <Detail seeker={this.state.seeker} />
         <AppliList jobList={this.state.jobList} applications={this.state.applications}/>
         {console.log("return ma listJobs" + this.state.jobList)}
+        <Footer />
       </div>
     )
   }
@@ -107,16 +109,16 @@ class SeekerDetail extends Component {
 
 const Detail = (props) => {
   return (
-    <div>
+    <div className="grid-container">
 
       <h4>Name of Candidate:{props.seeker.name}</h4>
-          <p>Email address:{props.seeker.email}</p>
-          <p>Contact number:{props.seeker.phone}</p>
-          <p>Social Website:{props.seeker.website}</p>
-          <p>Resume:{props.seeker.resume}</p>
-          <p>Current title:{props.seeker.current_title}</p>
-          <p>Require Notice Period:{props.seeker.notice_period}</p>
-          <p>Total years of an experience:{props.seeker.experience}</p>
+          <p><strong>Email address:</strong>{props.seeker.email}</p>
+          <p><strong>Contact number:</strong>{props.seeker.phone}</p>
+          <p><strong>Social Website:</strong>{props.seeker.website}</p>
+          <p><strong>Resume:</strong>{props.seeker.resume}</p>
+          <p><strong>Current title:</strong>{props.seeker.current_title}</p>
+          <p><strong>Require Notice Period:</strong>{props.seeker.notice_period}</p>
+          <p><strong>Total years of an experience:</strong>{props.seeker.experience}</p>
 
 
     </div>

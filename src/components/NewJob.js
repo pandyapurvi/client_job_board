@@ -4,6 +4,7 @@ import axios from 'axios';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
 import UserProfile from './UserProfile';
+
 class NewJob extends Component {
   constructor(){
     super();
@@ -30,7 +31,7 @@ class NewJob extends Component {
       return(
         <div>
         <Nav/>
-        <h1 >New Job</h1>
+        <h3 >New Job</h3>
         <CreateForm onSubmit={this.saveJob}/>
         <Footer/>
         </div>
@@ -119,51 +120,51 @@ class CreateForm extends Component {
     event.preventDefault();
     // console.log("hi");
     this.props.onSubmit(this.state.title, this.state.post_date, this.state.description, this.state.company_type, this.state.level, this.state.job_type, this.state.salary, this.state.city, this.state.close_date);
-    //this.props.onSubmit("TEST", "this.state.pettype");
+
 
   }
   render () {
 
     return (
-      <div className="editform">
+      <div className="grid-container">
       <form onSubmit={this._handleSubmit} >
-      <label>Job Title</label>
-      <input type="text" onInput={this._handleInputTitle}/>
+      <label >Job Title:</label><br/>
+      <input type="text" onInput={this._handleInputTitle} className="grid-input"/>
       <br />
 
-      <label>Post Date</label>
-      <input type="date" onInput={this._handleInputPost_date}/>
+      <label >Post Date:</label><br/>
+      <input type="date" onInput={this._handleInputPost_date} className="grid-input"/>
       <br />
 
-      <label>Description</label>
-      <textarea onInput={this._handleInputDescription}/>
+      <label >Description:</label><br/>
+      <textarea onInput={this._handleInputDescription} className="grid-input"/>
       <br />
 
-      <label>Type of Company</label>
-      <input type="text" onInput={this._handleInputCompany_type}/>
+      <label>Type of Company:</label><br/>
+      <input type="text" onInput={this._handleInputCompany_type} className="grid-input"/>
       <br />
 
-      <label>Level</label>
-      <input type="text" onInput={this._handleInputLevel}/>
+      <label>Level:</label><br/>
+      <input type="text" onInput={this._handleInputLevel} className="grid-input"/>
       <br />
 
-      <label>Type of Job</label>
-      <input type="text" onInput={this._handleInputJob_type}/>
+      <label>Type of Job:</label><br/>
+      <input type="text" onInput={this._handleInputJob_type} className="grid-input"/>
       <br />
 
-      <label>Salary</label>
-      <input type="number" onInput={this._handleInputSalary}/>
+      <label>Salary:</label><br/>
+      <input type="number" onInput={this._handleInputSalary} className="grid-input"/>
       <br />
 
-      <label>City</label>
-      <input type="text" onInput={this._handleInputCity}/>
+      <label >City:</label><br/>
+      <input type="text" onInput={this._handleInputCity} className="grid-input"/>
       <br />
 
-      <label>Closing Date</label>
-      <input type="date" onInput={this._handleInputClose_date}/>
-      <br />
+      <label>Closing Date:</label><br/>
+      <input type="date" onInput={this._handleInputClose_date} className="grid-input"/>
+      <br /><br/>
 
-      <button type="submit" onClick={"http://localhost:3000/#/"} className="alter">Create Job!</button>
+      <button type="submit" onClick={"/"}>Create Job!</button>
 
       </form>
       </div>

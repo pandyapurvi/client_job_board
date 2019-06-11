@@ -37,9 +37,10 @@ class Seeker extends Component {
   render(){
     return (
       <div>
+      <Nav />
         <h1>All Seeker Profile</h1>
         <ShowSeekerProfile seeker_user={this.state.seeker_user}/>
-
+        <Footer/>
       </div>
     )
   }
@@ -51,9 +52,9 @@ const ShowSeekerProfile =  (props) => {
     return(
       <div>
         {props.seeker_user.map((s) =>
-              <div>
-              <Link to={"/seeker/" + s.id}><p>{s.name}</p></Link>
-              <p>{s.current_title}</p>
+              <div className="job-macro">
+              <Link to={"/seeker/" + s.id} className="seeker" ><p>{s.name}</p></Link>
+              <p >{s.current_title}</p>
               </div>
         //   {
         //   s.employer=='false'
