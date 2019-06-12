@@ -113,7 +113,7 @@ nav  {
   /* background-color: #ccc; */
   color: #484043;
   background-color: #fbf9f5;
-  line-height: 1.7;
+  /* line-height: 1.7; */
   text-rendering: optimizeLegibility;
   font-family: lato,helvetica neue,Helvetica,Arial,sans-serif;
   border-bottom: 1px solid #e2dfdd;
@@ -129,7 +129,7 @@ ul {
   color: #f62958;
   background-color: transparent;
   cursor: pointer;
-  margin-right: 7rem;
+  margin-right: 4rem;
 }
 footer {
   width: 100%;
@@ -137,6 +137,10 @@ footer {
   bottom: 0;
   color: #f62958;
   background-color: #fbf9f5;
+}
+
+img {
+  border-radius: 20%;
 }
 
 @media screen and (max-width: 500px){

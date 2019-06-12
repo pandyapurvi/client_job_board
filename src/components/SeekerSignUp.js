@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl } from "react-bootstrap";
-//import './../App.css';
+import './../App.css';
 import axios from 'axios';
 import UserProfile from './UserProfile';
 import Nav from './Nav.js';
@@ -13,7 +13,7 @@ class SeekerSignUp extends Component {
       name: "",
       email: "",
       password: "",
-      // password_confirmation: "",
+      password_confirmation: "",
       phone: "",
       website:"",
       resume:"",
@@ -25,7 +25,7 @@ class SeekerSignUp extends Component {
     this.getName = this.getName.bind(this);
     this.getEmail = this.getEmail.bind(this);
     this.getPassword = this.getPassword.bind(this);
-    // this.getPassword_confirmation = this.getPassword_confirmation.bind(this);
+    this.getPassword_confirmation = this.getPassword_confirmation.bind(this);
     this.getPhone = this.getPhone.bind(this);
     this.getWebsite = this.getWebsite.bind(this);
     this.getResume = this.getResume.bind(this);
@@ -53,11 +53,11 @@ class SeekerSignUp extends Component {
       });
     }
 
-    // getPassword_confirmation(event) {
-    //   this.setState({
-    //     password_confirmation: event.target.value
-    //   });
-    // }
+    getPassword_confirmation(event) {
+      this.setState({
+        password_confirmation: event.target.value
+      });
+    }
 
     getPhone(event) {
       this.setState({
@@ -101,7 +101,7 @@ class SeekerSignUp extends Component {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            // password_confirmation: this.state.password_confirmation,
+            password_confirmation: this.state.password_confirmation,
             phone: this.state.phone,
             website: this.state.website,
             resume: this.state.resume,
@@ -119,17 +119,10 @@ class SeekerSignUp extends Component {
           });
       }
 
-  // saveUser( name, email,password) {
-  //   axios.post("http://localhost:3000/users.json", {name: name, email:email, password_digest: password}).then((result) => {
-  //     this.setState({user: [...this.state.user, result.data]})
-  //     console.log(result.data);
-  //
-  //     this.props.history.push("/jobs");
-  //   });
-  //
-  // }
+
 
   render(){
+
     return(
 
       <div >
@@ -231,69 +224,5 @@ class SeekerSignUp extends Component {
     );
   }
 };
-
-// class SeekerForm extends Component {
-//   constructor(){
-//     super();
-//     this.state = {
-//       name:'',
-//       email:'',
-//       password: '',
-//       phone:'',
-//       website:'',
-//       resume:'',
-//       notice_period:'',
-//       experience:'',
-//       current_title:''
-//     }
-//     this._handleInputName = this._handleInputName.bind(this);
-//     this._handleInputEmail = this._handleInputEmail.bind(this);
-//     this._handleInputPassword = this._handleInputPassword.bind(this);
-//     this._handleSubmit = this._handleSubmit.bind(this);
-//   }
-//
-//   _handleInputName(event){
-//     //console.log(event.target.value);
-//     this.setState({name: event.target.value})
-//   };
-//
-//   _handleInputEmail(event){
-//     //console.log(event.target.value);
-//     this.setState({email: event.target.value})
-//   };
-//
-//   _handleInputPassword(event){
-//     //console.log(event.target.value);
-//     this.setState({password: event.target.value})
-//   };
-//
-//   _handleSubmit(event){
-//     event.preventDefault();
-//     // console.log("hi");
-//     this.props.onSubmit(this.state.name, this.state.email, this.state.password)
-//     //this.props.onSubmit("TEST", "this.state.pettype");
-//
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <form onSubmit={this._handleSubmit}>
-//           <label>Name</label>
-//           <input type="text" onInput={this._handleInputName}/>
-//           <br></br>
-//
-//           <label>Email</label>
-//           <input type="text" onInput={this._handleInputEmail}/>
-//           <br></br>
-//
-//           <label>Password</label>
-//           <input type="text" onInput={this._handleInputPassword}/>
-//           <br></br>
-//           <button type="submit">Submit</button>
-//         </form>
-//       </div>
-//     )
-//   }
-// }
 
 export default SeekerSignUp;

@@ -29,14 +29,14 @@ class Nav extends Component {
       <div>
       <nav>
         <ul>
-          <li className="nav">Logo</li>
+          <li className="nav"><img src="http://blog.hireup.com.au/wp-content/uploads/2016/08/JOB_BOARD_blog.jpg" height="50" width="100"/></li>
           <li ><Link to={"/"} className="nav">Jobs</Link></li>
-          <li ><Link to={"/about"} className="nav">About Me</Link></li>
+          <li ><Link to={"/aboutme"} className="nav">About Me</Link></li>
           <li ><Link to={"/logout"} className="nav">LogOut</Link></li>
           {
           isEmployer
           ?
-          <li className="nav">Post a Job</li>
+          <li ><Link to={"/newjob"}className="nav">Post a Job</Link></li>
           : ''
         }
           <li><Link to= {"/seeker/" + takeID} className="nav" >Welcome {greeting}</Link></li>

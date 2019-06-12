@@ -13,6 +13,7 @@ import EmployerDetail from './components/EmployerDetail';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Apply from './components/Apply';
+import Aboutme from './components/Aboutme';
 
 const Routes = (
   <Router>
@@ -29,6 +30,7 @@ const Routes = (
       <Route exact path="/employer" component={Employer} />
       <Route exact path="/seeker/:id" component={SeekerDetail} />
       <Route exact path="/employer/:id" component={EmployerDetail} />
+      <Route exact path="/aboutme" component={Aboutme} />
     </div>
   </Router>
 );

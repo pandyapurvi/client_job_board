@@ -108,13 +108,13 @@ class SearchForm extends Component {
     _handleChangeCity(event){
     console.log(event.target.value);
     this.setState({ city: event.target.value});
-    //console.log(this.state.category);
+
   };
 
   _handleChangeJobTitle(event) {
     console.log(event.target.value);
     this.setState({title: event.target.value});
-    //console.log(this.state.pettype);
+
   };
 
   _handleSubmit(event){

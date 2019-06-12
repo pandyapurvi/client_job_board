@@ -4,12 +4,14 @@ import axios from 'axios';
 import Nav from './Nav.js';
 import Footer from './Footer.js';
 import UserProfile from './UserProfile';
+import cloudinary from 'cloudinary-core';
 
 class Apply extends Component {
   constructor() {
     super();
     this.state = {
-      application: []
+      application: [],
+      resumeURL: '',
     }
     this.saveJob = this.saveJob.bind(this);
     // this.fetchJobs = this.fetchJobs.bind(this);
@@ -22,9 +24,20 @@ class Apply extends Component {
     // };
     // allJobs();
 
+    this.widget = window.cloudinary.createUploadWidget({
+      cloudName: 'drgwrxu6l',
+      uploadPreset: 'wstkmhtq'},
+      (error, result) => {
+        if (result.event === 'success') {
+          this.setState({resumeURL: result.info.secure_url})
+        }
+
+      })
+
   }
 
-  saveJob( application_date, resume, cover_letter) {
+  saveJob( application_date, cover_letter) {
+    const resume = this.state.resumeURL
     const user_id = UserProfile.getUserId();
     const job_id = this.props.match.params.id;
     console.log("Userid: " + user_id);
@@ -41,19 +54,32 @@ class Apply extends Component {
       this.setState({application: [...this.state.application, result.data]})
 
 
-      //this.props.history.push("#/");
+      this.props.history.push("#/");
 
     });
 
   }
 
+
+  showWidget = () => {
+    this.widget.open()
+  }
+  checkUploadResult = (resultEvent) => {
+    if (resultEvent.event==='success') {
+      console.log(resultEvent);
+      // this.saveResume({resultEvent.secure_url})
+    }
+  }
+
   render() {
+
     return (
       <div>
-      <Nav/>
+        <Nav/>
           <h3>Job Application</h3>
-          <CreateForm onSubmit={this.saveJob}/>
-          <Footer/>
+          <button onClick={this.showWidget}>Upload Resume</button>
+        <CreateForm onSubmit={this.saveJob}/>
+        <Footer/>
       </div>
     )
   }
@@ -74,7 +100,6 @@ class CreateForm extends Component {
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
-
   _handleInputApplication_date(event) {
     console.log(event.target.value);
     this.setState({application_date: event.target.value})
@@ -91,9 +116,8 @@ class CreateForm extends Component {
 
   _handleSubmit(event){
     event.preventDefault();
-    // console.log("hi");
     this.props.onSubmit(this.state.application_date, this.state.resume, this.state.cover_letter);
-    //this.props.onSubmit("TEST", "this.state.pettype");
+
 
   }
   render () {
