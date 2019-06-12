@@ -157,6 +157,15 @@ class SeekerSignUp extends Component {
           />
           <br/>
 
+          <input
+            className="signup-input"
+            type="password"
+            value={this.state.password_confirmation}
+            onChange={this.getPassword_confirmation}
+            placeholder="Confirm Password"
+          />
+          <br/>
+
 
           <input
             className="signup-input"
@@ -173,15 +182,6 @@ class SeekerSignUp extends Component {
             value={this.state.website}
             onChange={this.getWebsite}
             placeholder="website link"
-            />
-            <br/>
-
-          <input
-            className="signup-input"
-            type="text"
-            value={this.state.resume}
-            onChange={this.getResume}
-            placeholder="resume"
             />
             <br/>
 

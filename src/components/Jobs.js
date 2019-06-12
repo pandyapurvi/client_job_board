@@ -132,15 +132,18 @@ class SearchForm extends Component {
           <label className="job-search">Job title:</label>
             <select onChange={this._handleChangeJobTitle}>
             <option>{''}</option>
-            <option>Graduate Software Enginner</option>
-            <option>Junior Software Enginner</option>
+            <option>Graduate Software Engineer</option>
+            <option>Junior Software Engineer</option>
+            <option>React-developer</option>
+            <option>Front-end Developer</option>
+            <option>Software Engineer</option>
             </select>
 
             <label className="job-search">City:</label>
               <select onChange={this._handleChangeCity}>
               <option>{''}</option>
               <option>Sydney</option>
-              <option>Melbourn</option>
+              <option>Melbourne</option>
               <option>Perth</option>
               <option>Canberra</option>
               </select>

@@ -48,13 +48,13 @@ class Apply extends Component {
       //let urlstr = "http://localhost:3001/?#/";
       console.log("urlstr: " + urlstr);
       if (urlstr.includes('#')) {
-        urlstr = urlstr.split('#')[0] + '#/'
+        urlstr = urlstr.split('#')[0] + '/'
       }
       window.location.replace(urlstr);
       this.setState({application: [...this.state.application, result.data]})
 
 
-      this.props.history.push("#/");
+      this.props.history.push("/");
 
     });
 

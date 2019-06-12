@@ -115,7 +115,6 @@ const Detail = (props) => {
           <p><strong>Email address:</strong>{props.seeker.email}</p>
           <p><strong>Contact number:</strong>{props.seeker.phone}</p>
           <p><strong>Social Website:</strong>{props.seeker.website}</p>
-          <p><strong>Resume:</strong>{props.seeker.resume}</p>
           <p><strong>Current title:</strong>{props.seeker.current_title}</p>
           <p><strong>Require Notice Period:</strong>{props.seeker.notice_period}</p>
           <p><strong>Total years of an experience:</strong>{props.seeker.experience}</p>

@@ -140,7 +140,11 @@ footer {
 }
 
 img {
-  border-radius: 20%;
+  border-radius: 10%;
+}
+.about {
+  list-style: none;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 500px){

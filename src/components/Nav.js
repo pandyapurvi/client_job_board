@@ -11,9 +11,9 @@ class Nav extends Component {
       <div>
       <nav>
         <ul>
-          <li className="nav">Logo</li>
+          <li className="nav"><img src="http://blog.hireup.com.au/wp-content/uploads/2016/08/JOB_BOARD_blog.jpg" height="50" width="100"/></li>
           <li><Link to={"/"} className="nav">Jobs</Link></li>
-          <li><Link to={"/about"} className="nav">About Me</Link></li>
+          <li><Link to={"/aboutme"} className="nav">About Me</Link></li>
           <li><Link to={"/login"} className="nav">Login</Link></li>
 
         </ul>
