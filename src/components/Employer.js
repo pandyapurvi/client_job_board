@@ -38,7 +38,7 @@ class Employer extends Component {
     return (
       <div>
       <Nav />
-        <h1>All Employer Profile</h1>
+        <h3>All Employer Profile</h3>
         <ShowEmployerProfile employer_user={this.state.employer_user}/>
         <Footer/>
       </div>
@@ -50,12 +50,11 @@ const ShowEmployerProfile =  (props) => {
   const isEmployer = UserProfile.getEmployer();
 
     return(
-      <div className="job-macro">
-      {console.log(props.employer_user)}
+      <div className="grid-container" >
+
         {props.employer_user.map((s) =>
-              <div>
+              <div className="job-macro">
               <Link to={"/employer/" + s.id} className="seeker"><p>{s.name}</p></Link>
-              {console.log(s.employer)}
               <p>{s.employer}</p>
 
               </div>

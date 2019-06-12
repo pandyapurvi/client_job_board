@@ -131,10 +131,12 @@ const AppliList = (props) => {
     } else {
       //TODO: sort by date
       return (
-        <div>
+
+        <div >
+        <h3>Applied Jobs by Seeker</h3>
         {props.jobList.map((job)=>
-          <div>
-          <h4>Job Title:{job.title}</h4>
+          <div className="applied-job">
+          <h4 >Job Title:{job.title}</h4>
 
           </div>
         )}
@@ -142,11 +144,7 @@ const AppliList = (props) => {
       )
 
     }
-    // <div>
-    // {console.log("Applications Detail: " + props.applications)}
-    // // {console.log("Joblist Detail: " + props.jobList)}
-    //   <h4>Job Title:{props.jobList.length}</h4>
-    // </div>
+
 
 }
 

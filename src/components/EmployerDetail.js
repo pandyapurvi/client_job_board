@@ -98,7 +98,7 @@ const Detail = (props) => {
           <p><strong>Social Website:</strong>{props.employer.website}</p>
           <p><strong>Size of Company:</strong>{props.employer.company_size}</p>
           <p><strong>Type of Company:</strong>{props.employer.company_type}</p>
-          <p><strong>Description:</strong>{props.employer.description}</p>
+          <p className="describe"><strong>Description:</strong>{props.employer.description}</p>
           <p><strong>ABN:</strong>{props.employer.ABN}</p>
           <Link to={"/seeker"} className="employer-btn">See Seeker's Profile</Link>
 
@@ -126,11 +126,6 @@ const AppliList = (props) => {
       )
 
     }
-    // <div>
-    // {console.log("Applications Detail: " + props.applications)}
-    // // {console.log("Joblist Detail: " + props.jobList)}
-    //   <h4>Job Title:{props.jobList.length}</h4>
-    // </div>
 
 }
 

@@ -78,7 +78,7 @@ const Showjobs = (props) => {
   } else {
     //TODO: sort by date
     return (
-      <div >
+      <div className="container" >
       {props.jobs.map((job)=>
 
           <Link to={"/job/" + job.id} key={job.id} className="job-macro"><p>{job.title}</p></Link>

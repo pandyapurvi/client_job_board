@@ -14,15 +14,6 @@ class Apply extends Component {
       resumeURL: '',
     }
     this.saveJob = this.saveJob.bind(this);
-    // this.fetchJobs = this.fetchJobs.bind(this);
-    //
-    // const allJobs = () => {
-    //   axios.get('http://localhost:3000/jobs.json').then((results) => {
-    //     console.log(results.data);
-    //     this.setState({jobs :results.data});
-    //   })
-    // };
-    // allJobs();
 
     this.widget = window.cloudinary.createUploadWidget({
       cloudName: 'drgwrxu6l',
@@ -77,7 +68,7 @@ class Apply extends Component {
       <div>
         <Nav/>
           <h3>Job Application</h3>
-          <button onClick={this.showWidget}>Upload Resume</button>
+          <button onClick={this.showWidget} className="resume">Upload Resume</button>
         <CreateForm onSubmit={this.saveJob}/>
         <Footer/>
       </div>
@@ -126,17 +117,13 @@ class CreateForm extends Component {
       <div className="grid-container">
       <form onSubmit={this._handleSubmit} >
 
-      <label className="item">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <input type="date" onInput={this._handleInputApplication_date}/>
-      <br/><br/>
-
-      <label className="item">Resume:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-      <textarea onInput={this._handleInputResume}/>
-      <br/><br/>
-
       <label className="item">Cover letter:</label>
       <textarea onInput={this._handleInputCover_letter}/>
       <br /><br/>
+
+      <label className="item">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+      <input type="date" onInput={this._handleInputApplication_date}/>
+      <br/><br/>
       <button type="submit" className="apply-btn">Apply</button>
 
       </form>

@@ -47,10 +47,25 @@ font-variant-ligatures: common-ligatures;
 .job-search{
   margin: 0 1rem;
 }
+.container {
+  margin: 1rem 9rem;
+}
+.describe {
+  max-width: 500px;
+}
 h3 {
   text-align: center;
 }
-
+.applied-job {
+  text-align: center;
+  margin-right: 5rem;
+}
+.resume {
+  display: grid;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  margin-left: 43rem;
+}
 .grid-container{
   display: grid;
   grid-template-row: auto auto auto;
