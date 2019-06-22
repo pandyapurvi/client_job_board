@@ -1,6 +1,6 @@
 # Job-Board
 
-## [Find your next job here:](http://localhost:3001/#/)
+## [Find your next job here:](https://pandyapurvi.github.io/deployment/#/)
 
 This is job-board application, where a seeker can find and apply for a job, while an employer can post a job as well as can see seeker's profile.
 ![homepage](https://user-images.githubusercontent.com/47726963/59348000-635a9f80-8d59-11e9-9369-770871cc9285.png)
