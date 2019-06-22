@@ -11,24 +11,24 @@ class Apply extends Component {
     super();
     this.state = {
       application: [],
-      resumeURL: '',
+      // resumeURL: '',
     }
     this.saveJob = this.saveJob.bind(this);
 
-    this.widget = window.cloudinary.createUploadWidget({
-      cloudName: 'drgwrxu6l',
-      uploadPreset: 'wstkmhtq'},
-      (error, result) => {
-        if (result.event === 'success') {
-          this.setState({resumeURL: result.info.secure_url})
-        }
-
-      })
+    // this.widget = window.cloudinary.createUploadWidget({
+    //   cloudName: 'drgwrxu6l',
+    //   uploadPreset: 'wstkmhtq'},
+    //   (error, result) => {
+    //     if (result.event === 'success') {
+    //       this.setState({resumeURL: result.info.secure_url})
+    //     }
+    //
+    //   })
 
   }
 
-  saveJob( application_date, cover_letter) {
-    const resume = this.state.resumeURL
+  saveJob( application_date, cover_letter, resume) {
+    // const resume = this.state.resumeURL
     const user_id = UserProfile.getUserId();
     const job_id = this.props.match.params.id;
     console.log("Userid: " + user_id);
@@ -52,15 +52,15 @@ class Apply extends Component {
   }
 
 
-  showWidget = () => {
-    this.widget.open()
-  }
-  checkUploadResult = (resultEvent) => {
-    if (resultEvent.event==='success') {
-      console.log(resultEvent);
-      // this.saveResume({resultEvent.secure_url})
-    }
-  }
+  // showWidget = () => {
+  //   this.widget.open()
+  // }
+  // checkUploadResult = (resultEvent) => {
+  //   if (resultEvent.event==='success') {
+  //     console.log(resultEvent);
+  //     // this.saveResume({resultEvent.secure_url})
+  //   }
+  // }
 
   render() {
 
@@ -68,7 +68,7 @@ class Apply extends Component {
       <div>
         <Nav/>
           <h3>Job Application</h3>
-          <button onClick={this.showWidget} className="resume">Upload Resume</button>
+
         <CreateForm onSubmit={this.saveJob}/>
         <Footer/>
       </div>
@@ -117,6 +117,10 @@ class CreateForm extends Component {
       <div className="grid-container">
       <form onSubmit={this._handleSubmit} >
 
+      <label className="item">Resume:</label>
+      <textarea onInput={this._handleInputResume}/>
+      <br /><br/>
+
       <label className="item">Cover letter:</label>
       <textarea onInput={this._handleInputCover_letter}/>
       <br /><br/>
@@ -134,3 +138,4 @@ class CreateForm extends Component {
 };
 
 export default Apply;
+// <button onClick={this.showWidget} className="resume">Upload Resume</button>

@@ -35,16 +35,18 @@ class SeekerDetail extends Component {
 
 
           const application_data = results.data;
-            console.log("reaching here " + application_data[0].user_id);
+                console.log("application Data: " + results.data);
             for (let i = 0; i < application_data.length; i++) {
               const applicationData = application_data[i];
-
+              console.log("applicationData.user_id : "+ applicationData.user_id);
+              console.log("user_id: " + user_id);
                 if (applicationData.user_id == user_id){
-
+                    console.log("come here: " + applicationData);
                   listApplications.push( applicationData );//selected title  and selected city
                 }
 
             }
+            console.log("listApplications: " + listApplications);
             this.setState({applications: listApplications});
         })
         // axios.get('https://server-job-board.herokuapp.com/jobs.json').then((results) => {
@@ -101,6 +103,7 @@ class SeekerDetail extends Component {
         <Detail seeker={this.state.seeker} />
         <AppliList jobList={this.state.jobList} applications={this.state.applications}/>
         {console.log("return ma listJobs" + this.state.jobList)}
+        {console.log("return ma applications" + this.state.applications)}
         <Footer />
       </div>
     )

@@ -140,15 +140,6 @@ class EmployerSignUp extends Component {
           });
       }
 
-  // saveUser( name, email,password) {
-  //   axios.post("http://localhost:3000/users.json", {name: name, email:email, password_digest: password}).then((result) => {
-  //     this.setState({user: [...this.state.user, result.data]})
-  //     console.log(result.data);
-  //
-  //     this.props.history.push("/jobs");
-  //   });
-  //
-  // }
 
   render(){
     return(
