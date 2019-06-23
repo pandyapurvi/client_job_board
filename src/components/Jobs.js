@@ -59,13 +59,15 @@ class Jobs extends Component {
 render() {
   return (
     <div>
-
+      <Nav/>
+      <div className="container">
       <h1>Search over current positions</h1>
       <h1>for developers in one sizzlin' spot</h1>
 
       <SearchForm onSubmit={ this.fetchJobs}/>
       <Showjobs jobs={this.state.jobs}/>
-
+      </div>
+      <Footer/>
     </div>
   )
 }
@@ -78,10 +80,13 @@ const Showjobs = (props) => {
   } else {
     //TODO: sort by date
     return (
-      <div className="container" >
+      <div >
+      <br></br><br></br><br></br>
       {props.jobs.map((job)=>
+        <div  >
+          <Link to={"/job/" + job.id} key={job.id} className="job-macro"><h3>{job.title}</h3></Link>
+          </div>
 
-          <Link to={"/job/" + job.id} key={job.id} className="job-macro"><p>{job.title}</p></Link>
 
       )}
       </div>

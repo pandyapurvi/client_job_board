@@ -146,8 +146,8 @@ class EmployerSignUp extends Component {
 
       <div>
         <Nav />
-        <div className="grid-container">
-        <h2>Sign Up</h2>
+        <div className="grid-container container">
+        <h3>Sign Up</h3>
         <form onSubmit={this.signup}>
           <input
             className="signup-input"

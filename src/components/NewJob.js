@@ -31,8 +31,10 @@ class NewJob extends Component {
       return(
         <div>
         <Nav/>
+        <div className="container">
         <h3 >New Job</h3>
         <CreateForm onSubmit={this.saveJob}/>
+        </div>
         <Footer/>
         </div>
       )
@@ -164,7 +166,7 @@ class CreateForm extends Component {
       <input type="date" onInput={this._handleInputClose_date} className="grid-input"/>
       <br /><br/>
 
-      <button type="submit" onClick={"/"}>Create Job!</button>
+      <Link to={"/"}><button type="submit" className="button">Create Job!</button></Link>
 
       </form>
       </div>

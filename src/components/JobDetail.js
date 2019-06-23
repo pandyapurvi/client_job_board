@@ -30,12 +30,16 @@ class JobDetail extends Component {
     return (
       <div>
         <Nav />
+
         <Description job={this.state.job}/>
+        <div className="grid-container">
         {
         isEmployer
-        ?  <button>Update</button>
+        ?  <Link to={"/newjob"}><button className="button-update">Update</button></Link>
         : ''
       }
+      </div>
+
         <Footer />
       </div>
     )
@@ -48,24 +52,26 @@ class Description extends Component {
     const isEmail = UserProfile.getEmail();
     console.log("is Email" + isEmail);
     return (
+      <div className="container">
       <div className="grid-container">
-        <p><strong>Job title: </strong>{this.props.job.title}</p>
+        <h3>{this.props.job.title}</h3>
         <p><strong>Posted On: </strong>{this.props.job.post_date}</p>
         <p className="describe"><strong>Description: </strong>{this.props.job.description}</p>
         <p><strong>Type of Company: </strong>{this.props.job.company_type}</p>
         <p><strong>Level: </strong>{this.props.job.level}</p>
         <p><strong>Type of Job: </strong>{this.props.job.job_type}</p>
-        <p><strong>Salary: </strong>{this.props.job.salary}</p>
+        <p><strong>Salary: </strong>${this.props.job.salary}</p>
         <p><strong>City: </strong>{this.props.job.city}</p>
         <p><strong>Job Closing Date: </strong>{this.props.job.close_date}</p>
         {
           (isEmail === '')
           ? <Link to={"/login"}><button>Apply</button></Link>
           : isEmployer
-          ? '': <Link to={"/job/" + this.props.job.id + "/apply"}><button>Apply</button></Link>
+          ? '': <Link to={"/job/" + this.props.job.id + "/apply" }><button className="button">Apply</button></Link>
         }
 
 
+      </div>
       </div>
     )
   }

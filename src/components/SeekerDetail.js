@@ -112,6 +112,7 @@ class SeekerDetail extends Component {
 
 const Detail = (props) => {
   return (
+    <div className="container">
     <div className="grid-container">
 
       <h4>Name of Candidate:{props.seeker.name}</h4>
@@ -124,6 +125,10 @@ const Detail = (props) => {
 
 
     </div>
+    <hr></hr>
+    </div>
+
+
   )
 }
 
@@ -135,16 +140,19 @@ const AppliList = (props) => {
       //TODO: sort by date
       return (
 
-        <div >
+        <div className="container" >
         <h3>Applied Jobs by Seeker</h3>
         {props.jobList.map((job)=>
-          <div className="applied-job">
+          <div className="applied-job grid-container">
           <h4 >Job Title:{job.title}</h4>
 
           </div>
         )}
         </div>
+
+
       )
+
 
     }
 

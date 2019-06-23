@@ -6,9 +6,9 @@ import Jobs from './Jobs.js';
 function App() {
   return (
     <div className="App">
-      <Nav />
+
       <Jobs />
-      <Footer />
+      
     </div>
   );
 }

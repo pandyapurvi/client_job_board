@@ -128,7 +128,7 @@ class CreateForm extends Component {
       <label className="item">Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
       <input type="date" onInput={this._handleInputApplication_date}/>
       <br/><br/>
-      <button type="submit" className="apply-btn">Apply</button>
+      <Link to={"/"}><button type="submit" className="apply-btn">Apply</button></Link>
 
       </form>
       </div>
