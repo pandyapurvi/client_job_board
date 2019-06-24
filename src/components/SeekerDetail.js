@@ -29,8 +29,7 @@ class SeekerDetail extends Component {
 
 
       const allApplications = () => {
-        // const listApplications = [];
-        // const listJobs = [];
+
         axios.get('https://server-job-board.herokuapp.com/applications.json').then((results) => {
 
 
@@ -49,26 +48,7 @@ class SeekerDetail extends Component {
             console.log("listApplications: " + listApplications);
             this.setState({applications: listApplications});
         })
-        // axios.get('https://server-job-board.herokuapp.com/jobs.json').then((results) => {
-        //
-        //   const listJobs_data = results.data;
-        //     console.log("Ahiya Aave K e nai" + listJobs_data.length);
-        //     for (let i = 0; i < listJobs_data.length; i++) {
-        //       const listJobsData = listJobs_data[i];
-        //       for ( let j = 0; j < listApplications.length; j++){
-        //         if (listJobsData.id === listApplications[j].job_id){
-        //           console.log("Have Ahinu Su chhe");
-        //           listJobs.push( listJobsData );
-        //         }
-        //
-        //       }
-        //
-        //
-        //     }
-        //     this.setState({jobList: listJobs});
-        //
-        // })
-
+        
 
       }
       const allJobs = () => {
